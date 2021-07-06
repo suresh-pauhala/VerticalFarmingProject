@@ -13,7 +13,7 @@ let db = new sqlite.Database("./mydb.sqlite3", (err) => {
 app.use(cors());
 app.use(express.json());
 const createTable = () => {
-    console.log("inside create table")
+ 
    db.run("CREATE TABLE IF NOT EXISTS user(id INTEGER PRIMARY KEY AUTOINCREMENT, email VARCHAR, password VARCHAR)");
 }
 
@@ -27,7 +27,6 @@ app.post("/register", (req, res) =>{
 
     db.all(result, [email],(err, row) => {
         if (err) {
-            console.log(err.message);
             res.send(err.message)
         }
         else if(row.length != 0){
@@ -45,16 +44,12 @@ app.post("/register", (req, res) =>{
 app.post("/login", (req, res) =>{
     const email = req.body.email;
     const password = req.body.password;
-    console.log(email);
-    console.log(password);
-
-
+    
     const result = 'SELECT * FROM user WHERE email = ? AND password = ?';
 
 
     db.all(result, [email, password],(err, row) => {
         if (err) {
-            console.log(err.message);
             res.send(err.message)
         }
         else if(row.length != 0){

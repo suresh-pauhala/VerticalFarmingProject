@@ -1,0 +1,29 @@
+body{
+  margin:0px;
+}
+.navDiv{
+  width:150px;
+  float: right;
+}
+.relative {
+  top:-20px;
+  position: relative;
+  width:100%;
+} 
+
+.absolute {
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  
+}
+.btn {
+  background-color: #00BFFF;
+  border-color: #3ac162;
+  font-weight: bold;
+  padding: 9px 10px;
+  color: #000000;
+  margin: 0 5px;
+  width: 110px;
+  height: 35px;
+}

@@ -113,7 +113,7 @@ class LoginForm extends React.Component {
     return (
     <div id="main-registration-container">
      <div id="login">
-        <h3 class="title">Login</h3>
+        <h3 className="title">Login</h3>
         <form method="post"  name="userLoginForm"  onSubmit= {this.submituserLoginForm} >
         
         <label>Email ID:</label>
