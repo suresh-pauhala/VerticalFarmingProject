@@ -38,32 +38,28 @@ class RegisterForm extends React.Component {
         Axios.post("http://localhost:3001/register", {
           email :  fields["emailid"],
           password: fields["password"]
-         }).then(() => {
-          alert("registered");
-        });
+         }).then((response) => {
+          console.log(response);
+          if(response.data.message == "Failed")
+          this.setState({RegistrationStatus:"User already exist"})
+          
+           else
+           //localStorage.setItem('login',"true");
+           this.props.history.push("/");
+           
+       });
 
           fields = {};
           fields["emailid"] = "";
           fields["password"] = "";
           this.setState({fields:fields});
-          alert("Registration successfull");
+          
       }
 
     }
     
     validateForm() {
-      // const [email, setEmail] = useState("");
-      // const [password, setPassword] = useState("");
-    
-      // const submit = () => {
-      //   Axios.post("http://localhost:3001/api/register", {
-      //     email : email,
-      //     password: password
-      //   }).then(() => {
-      //     alert("registered");
-      //   });
-      // }
-     
+      
       let fields = this.state.fields;
       let errors = {};
       let formIsValid = true;
@@ -105,8 +101,6 @@ class RegisterForm extends React.Component {
 
     }
 
-
-
   render() {
     return (
     <div id="main-registration-container">
@@ -123,12 +117,12 @@ class RegisterForm extends React.Component {
         <div className="errorMsg">{this.state.errors.password}</div>
         <input type="submit" className="button"  value="Register"/>
         </form>
+        <p className="title errorMsg" >{this.state.RegistrationStatus}</p>
     </div>
 </div>
 
       );
   }
-
 
 }
 

@@ -13,20 +13,15 @@ function Home(props)
 }
 return(
     <div>
-    <button onClick={handleLoginClick}>Login</button>
-    <button onClick={handleRegisterClick}>Signup</button>
+        <div className="navDiv">
+            <button  onClick={handleLoginClick}>Login</button>
+            <button  onClick={handleRegisterClick}>Signup</button>
+        </div>
     {/* <br></br>
     <NavLink to="/login" exact activeClassName="activeLink">Login</NavLink>
     <NavLink to="/registration">Sign up</NavLink> */}
     <br></br>
     <img src={logo} />
-    {/* <h2>Home Page</h2> 
-
-             <ul>
-                
-                 <li><Link to="/registration">Reg</Link></li>
-                 <li><Link to="/login">Login</Link></li>
-             </ul>  */}
      
     </div>
 ) 

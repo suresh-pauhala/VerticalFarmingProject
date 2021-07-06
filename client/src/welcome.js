@@ -2,12 +2,16 @@ import React from 'react';
 
 function Welcome(props)
 {
-    if(localStorage.getItem('login')!=="true"){
-        props.history.push("/")
-    }
-    return(
-        <div>Welcome</div>
-    );
+    // if(localStorage.getItem('login')!=="true"){
+    //     props.history.push("/")
+    //     return(<></>);
+    
+    // }
+    // else
+        // {
+            return(
+            <div>Welcome</div>);
+        // }
         
     
 }

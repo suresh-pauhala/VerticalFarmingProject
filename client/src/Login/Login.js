@@ -3,7 +3,7 @@ import Axios from 'axios';
 import Welcome from '../welcome'; 
 
 
-//import './Registration/style.css';
+import '../Registration/style.css';
 
 
 
@@ -46,12 +46,12 @@ class LoginForm extends React.Component {
          }).then((response) => {
            console.log(response);
            if(response.data.message == "Failed")
-           this.setState({loginStatus:response.data.message})
-           // setLoginStatus(response.data.messsage);
-            else
-            localStorage.setItem('login',"true");
+           this.setState({loginStatus:"Wrong credentials !"})
+           
+            else{
+            // localStorage.setItem('login',"true");
             this.props.history.push("/welcome");
-            
+            }
         });
 
           fields = {};        
@@ -125,8 +125,9 @@ class LoginForm extends React.Component {
         <div className="errorMsg">{this.state.errors.password}</div>
         <input type="submit" className="button"  value="Login"/>
         </form>
+        <p className="title errorMsg" >{this.state.loginStatus}</p>
     </div>
-    <h2>{this.state.loginStatus}</h2>
+    
 </div>
 
       );
